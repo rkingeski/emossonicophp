@@ -15,6 +15,12 @@ if(!isset($_SESSION['token2'])){
 
 require_once "../db/conexao.php";
 
+if($_POST['voto'] == 'concordo'){
+    $sql = "SELECT * FROM audios WHERE id = ?";
+    stmt = $conexao->prepare($sql);
+    $stmt->bind_param('i') 
+
+}
 
 $sql = "INSERT INTO audios
         (emocao, filename, idade, sexo, descricao, sam1, sam2, sam3, data, IP, forma)

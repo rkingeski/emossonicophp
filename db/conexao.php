@@ -1,9 +1,12 @@
 <?php
 
 function novaConexao($banco = 'emossonico'){
-    $servidor = '127.0.0.1:3306'; // apenas para portas dif 3306
-    $usuario = 'root';
-    $senha = 'root';
+    $envPath = realpath(dirname(__FILE__) . '/../src/env.ini');
+    $env = parse_ini_file($envPath);
+    $servidor = $env['host']; // apenas para portas dif 3306
+    $usuario = $env['username'];
+    $senha = $env['password'];
+    $banco = $env['database'];
 
 
     $conexao = new mysqli($servidor, $usuario, $senha, $banco);

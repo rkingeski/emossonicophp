@@ -477,14 +477,13 @@ switch(i3.value){
         request.open('POST','upload.php', true);
 		if(this.ablob==undefined){
 			alert("Áudio Vazio")
-
 		}else{
 		if(this.ablob.size>=20000000){
-			alert("Áudio Muito Grande! Favor regravar com tempo menor. O ideal é que não ultrapasse de dois minutos.")
+			alert("Áudio Muito Grande! Favor regravar com tempo menor. O ideal é que não ultrapasse de três minutos, você pode enviar quantos você desejar. ")
 		} else {
 		request.send(data2)
 		alert("Enviado")
-		//validateCaptcha()
+		validateCaptcha()
 		}
 		}	
 	}

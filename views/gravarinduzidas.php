@@ -86,7 +86,53 @@ p[type="center"]{
         <p class='lead'>Grave aqui sua emoção</p>
 
         <p>Ao gravar, você está concordando com os <a href="termo">Termos</a>.</p>
-    
+
+		<p>
+			<a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+				Videos
+			</a>
+			<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+				Button with data-bs-target
+			</button>
+		</p>
+		<div class="collapse" id="collapseExample">
+			<div class="card card-body">
+			<p>
+				<a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample2">
+					Link with href
+				</a>
+				<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2">
+					Button with data-bs-target
+				</button>
+			</p>
+			<div class="collapse" id="collapseExample2">
+				<div class="card card-body">
+					Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+				</div>
+			</div>
+			</div>
+		</div>
+
+		<div class="game-player-container" style="/*width:750px;*/">
+
+		<div class="jogo">
+		<iframe src='https://www.minijuegos.com/embed/i-wanna-be-the-guy' style='width:100%;height: 500px;' frameborder='0' allowfullscreen></iframe>
+		</div>
+
+		<div class="container mt-4 px-4 col-md-8">
+			<div class="">
+			<iframe width="560" height="340" src="https://www.youtube.com/embed/iz7PAJGdlqU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			</div>
+			<div class="">
+			<iframe width="560" height="340" src="https://www.youtube.com/embed/dvp3dbphnPo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			</div>
+			<div class="">
+			<iframe width="560" height="340" src="https://www.youtube.com/embed/1OynFyRO6xk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			</div>
+		</div>
+
+
+
 
 
 		<div class="container mt-4 px-2 col-md-8 m-2">
@@ -106,30 +152,30 @@ p[type="center"]{
         
         <form id='form' action="upload.php" method='post' name='formu' enctype="multipart/form-data" onsubmit="validateCaptcha()">
 			<input type="hidden" name="_token" value="<?php echo $_SESSION['token'] ?>"> 
-			<input type="hidden" name="type" value="induced"> 
+			<input type="hidden" name="forma" value="induzida"> 
 			<div class="form-row">
                 <div class="col-sm-3 mt-2">
-					<input id="age" name="age" type="number" min="18" max="100" placeholder="Idade" class='form-control form-control-sm' required>
+					<input id="idade" name="idade" type="number" min="18" max="100" placeholder="Idade" class='form-control form-control-sm' required>
 					
                 </div>
                 <div class="col-sm-4 mt-2">
-                    <select id="gender" name="gender" class='form-control form-control-sm' required>
+                    <select id="sexo" name="sexo" class='form-control form-control-sm' required>
                         <option value="" disabled selected hidden>Sexo</option>
-                        <option value="male">Masculino</option>
-                        <option value="female">Feminino</option>
+                        <option value="Masculino">Masculino</option>
+                        <option value="Feminino">Feminino</option>
                     </select>
                 </div>
 				<div class="col-sm mt-2">
-					<select name="emotion" id='emotion' class='form-control form-control-sm' onchange='checkvalue(this.value)'>
+					<select name="emocao" id='emocao' class='form-control form-control-sm' onchange='checkvalue(this.value)'>
 						<option value="" disabled selected hidden>Emoção</option>
-						<option value="happy">Felicidade</option>
-						<option value="sad">Tristeza</option>
-						<option value="disgust">Nojo</option>
-						<option value="fear">Medo</option>
-						<option value="angry">Raiva</option>
-						<option value="surprise">Surpresa</option>
-						<option value="neutral">Neutro</option>
-						<option value="others">Outro</option>
+						<option value="Felicidade">Felicidade</option>
+						<option value="Tristeza">Tristeza</option>
+						<option value="Nojo">Nojo</option>
+						<option value="Medo">Medo</option>
+						<option value="Raiva">Raiva</option>
+						<option value="Surpresa">Surpresa</option>
+						<option value="Neutro">Neutro</option>
+						<option value="Outra">Outra</option>
 					</select>
 				</div>
 
@@ -137,7 +183,7 @@ p[type="center"]{
 
 			<div class="row">
 				<div class="col-sm mt-2">
-					<input class="form-control form-control-sm" type="text" id='others' name='others' style='display:none' placeholder="Descreva">
+					<input class="form-control form-control-sm" type="text" id='outra' name='outra' style='display:none' placeholder="Descreva">
 				</div>
 			</div>
 
@@ -157,7 +203,7 @@ p[type="center"]{
 			
 			<div class="row">
 				<div id="SAM" class='d-flex justify-content-center'>
-					<img id="samimage" src="/images/SAM/SAM 11-3.png" alt="" class="img-thumbnail" width="200" height="250">
+					<img src="/images/SAM/SAM 11-5.png" alt="" class="img-thumbnail" width="200" height="250">
 				</div>
 
 				<div class="slider">
@@ -167,7 +213,7 @@ p[type="center"]{
 							<div class="ml-auto p-2"><b>Feliz</b></div>
 						</div>
 					<div class="mdc-slider mdc-slider--discrete mdc-slider--tick-marks"></div>
-					<input id="slide" name="sam1" class="form-range" list="tickmarks" type="range" min="-2" max="2"/> 		
+					<input id="slide" name="sam1" class="form-range" list="tickmarks" type="range" min="-4" max="4"/> 		
 					</div>
 
 				</div>
@@ -190,7 +236,7 @@ p[type="center"]{
 								<div class="ml-auto p-2"><b>Calmo</b></div>
 							</div>
 							<div class="mdc-slider mdc-slider--discrete mdc-slider--tick-marks"></div>
-							<input id="slide2" name="sam2" class="form-range" list="tickmarks" type="range" min="1" max="5"/> 
+							<input id="slide2" name="sam2" class="form-range" list="tickmarks" type="range" min="-4" max="4"/> 
 							
 						</div>
 					</div>
@@ -214,7 +260,7 @@ p[type="center"]{
 									<div class="ml-auto p-2"><b>Controlando</b></div>
 								</div>
 							<div class="mdc-slider mdc-slider--discrete mdc-slider--tick-marks"></div>
-								<input id="slide3" name="sam3" class="form-range" list="tickmarks" type="range" min="1" max="5"/> 
+								<input id="slide3" name="sam3" class="form-range" list="tickmarks" type="range" min="-4" max="4"/> 
 								
 							</div>
 			
@@ -252,16 +298,28 @@ p[type="center"]{
 	<link rel="preload" href="/images/SAM/SAM 11-3.png" as="image">
 	<link rel="preload" href="/images/SAM/SAM 11-4.png" as="image">
 	<link rel="preload" href="/images/SAM/SAM 11-5.png" as="image">
+	<link rel="preload" href="/images/SAM/SAM 11-6.png" as="image">
+	<link rel="preload" href="/images/SAM/SAM 11-7.png" as="image">
+	<link rel="preload" href="/images/SAM/SAM 11-8.png" as="image">
+	<link rel="preload" href="/images/SAM/SAM 11-9.png" as="image">
 	<link rel="preload" href="/images/SAM/SAM 12-1.png" as="image">
 	<link rel="preload" href="/images/SAM/SAM 12-2.png" as="image">
 	<link rel="preload" href="/images/SAM/SAM 12-3.png" as="image">
 	<link rel="preload" href="/images/SAM/SAM 12-4.png" as="image">
 	<link rel="preload" href="/images/SAM/SAM 12-5.png" as="image">
+	<link rel="preload" href="/images/SAM/SAM 12-6.png" as="image">
+	<link rel="preload" href="/images/SAM/SAM 12-7.png" as="image">
+	<link rel="preload" href="/images/SAM/SAM 12-8.png" as="image">
+	<link rel="preload" href="/images/SAM/SAM 12-9.png" as="image">
 	<link rel="preload" href="/images/SAM/SAM 13-1.png" as="image">
 	<link rel="preload" href="/images/SAM/SAM 13-2.png" as="image">
 	<link rel="preload" href="/images/SAM/SAM 13-3.png" as="image">
 	<link rel="preload" href="/images/SAM/SAM 13-4.png" as="image">
 	<link rel="preload" href="/images/SAM/SAM 13-5.png" as="image">
+	<link rel="preload" href="/images/SAM/SAM 13-6.png" as="image">
+	<link rel="preload" href="/images/SAM/SAM 13-7.png" as="image">
+	<link rel="preload" href="/images/SAM/SAM 13-8.png" as="image">
+	<link rel="preload" href="/images/SAM/SAM 13-9.png" as="image">
 
 
 </body>
@@ -277,54 +335,84 @@ include('../includes/footer.php');
 <script>
 
 function checkvalue(val){
-if(val == 'others'){
-	document.getElementById('others').style.display='block'
+if(val == 'Outra'){
+	document.getElementById('Outra').style.display='block'
 }
 }
+
+
 
 
 
 
 let i = document.getElementById('slide')
 
+
 i.addEventListener('input', function () {
 switch(i.value){
+	case '-4':  
+	$('#SAM').html(`<img src="/images/SAM/SAM 11-1.png" alt="" class="img-thumbnail" width="200" height="250">`)
+	break
+	case '-3':  
+	$('#SAM').html(`<img src="/images/SAM/SAM 11-2.png" alt="" class="img-thumbnail" width="200" height="250">`)
+	break
 	case '-2':  
-	$('#SAM').html(`<img id="samimage" src="/images/SAM/SAM 11-1.png" alt="" class="img-thumbnail" width="200" height="250">`)
+	$('#SAM').html(`<img src="/images/SAM/SAM 11-3.png" alt="" class="img-thumbnail" width="200" height="250">`)
 	break
 	case '-1':  
-	$('#SAM').html(`<img id="samimage" src="/images/SAM/SAM 11-2.png" alt="" class="img-thumbnail" width="200" height="250">`)
+	$('#SAM').html(`<img src="/images/SAM/SAM 11-4.png" alt="" class="img-thumbnail" width="200" height="250">`)
 	break
-	case '0':  
-	$('#SAM').html(`<img id="samimage" src="/images/SAM/SAM 11-3.png" alt="" class="img-thumbnail" width="200" height="250">`)
+	case '0': 
+	$('#SAM').html(`<img src="/images/SAM/SAM 11-5.png" alt="" class="img-thumbnail" width="200" height="250">`)
 	break
 	case '1':  
-	$('#SAM').html(`<img id="samimage" src="/images/SAM/SAM 11-4.png" alt="" class="img-thumbnail" width="200" height="250">`)
+	$('#SAM').html(`<img src="/images/SAM/SAM 11-6.png" alt="" class="img-thumbnail" width="200" height="250">`)
 	break
 	case '2':  
-	$('#SAM').html(`<img id="samimage" src="/images/SAM/SAM 11-5.png" alt="" class="img-thumbnail" width="200" height="250">`)
+	$('#SAM').html(`<img src="/images/SAM/SAM 11-7.png" alt="" class="img-thumbnail" width="200" height="250">`)
+	break
+	case '3':  
+	$('#SAM').html(`<img src="/images/SAM/SAM 11-8.png" alt="" class="img-thumbnail" width="200" height="250">`)
+	break
+	case '4':  
+	$('#SAM').html(`<img src="/images/SAM/SAM 11-9.png" alt="" class="img-thumbnail" width="200" height="250">`)
 	break
 }
 }, false);
+
+
+
 
 let i2 = document.getElementById('slide2')
 
 i2.addEventListener('input', function () {
 switch(i2.value){
+	case '-4':  
+	$('#SAM2').html(`<img src="/images/SAM/SAM 12-1.png" alt="" class="img-thumbnail" width="200" height="250">`)
+	break
+	case '-3':  
+	$('#SAM2').html(`<img src="/images/SAM/SAM 12-2.png" alt="" class="img-thumbnail" width="200" height="250">`)
+	break
+	case '-2':  
+	$('#SAM2').html(`<img src="/images/SAM/SAM 12-3.png" alt="" class="img-thumbnail" width="200" height="250">`)
+	break
+	case '-1':  
+	$('#SAM2').html(`<img src="/images/SAM/SAM 12-4.png" alt="" class="img-thumbnail" width="200" height="250">`)
+	break
+	case '0': 
+	$('#SAM2').html(`<img src="/images/SAM/SAM 12-5.png" alt="" class="img-thumbnail" width="200" height="250">`)
+	break
 	case '1':  
-	$('#SAM2').html(`<img id="samimage" src="/images/SAM/SAM 12-1.png" alt="" class="img-thumbnail" width="200" height="250">`)
+	$('#SAM2').html(`<img src="/images/SAM/SAM 12-6.png" alt="" class="img-thumbnail" width="200" height="250">`)
 	break
 	case '2':  
-	$('#SAM2').html(`<img id="samimage" src="/images/SAM/SAM 12-2.png" alt="" class="img-thumbnail" width="200" height="250">`)
+	$('#SAM2').html(`<img src="/images/SAM/SAM 12-7.png" alt="" class="img-thumbnail" width="200" height="250">`)
 	break
 	case '3':  
-	$('#SAM2').html(`<img id="samimage" src="/images/SAM/SAM 12-3.png" alt="" class="img-thumbnail" width="200" height="250">`)
+	$('#SAM2').html(`<img src="/images/SAM/SAM 12-8.png" alt="" class="img-thumbnail" width="200" height="250">`)
 	break
 	case '4':  
-	$('#SAM2').html(`<img id="samimage" src="/images/SAM/SAM 12-4.png" alt="" class="img-thumbnail" width="200" height="250">`)
-	break
-	case '5':  
-	$('#SAM2').html(`<img id="samimage" src="/images/SAM/SAM 12-5.png" alt="" class="img-thumbnail" width="200" height="250">`)
+	$('#SAM2').html(`<img src="/images/SAM/SAM 12-9.png" alt="" class="img-thumbnail" width="200" height="250">`)
 	break
 }
 }, false);
@@ -333,20 +421,32 @@ let i3 = document.getElementById('slide3')
 
 i3.addEventListener('input', function () {
 switch(i3.value){
+	case '-4':  
+	$('#SAM3').html(`<img src="/images/SAM/SAM 13-1.png" alt="" class="img-thumbnail" width="200" height="250">`)
+	break
+	case '-3':  
+	$('#SAM3').html(`<img src="/images/SAM/SAM 13-2.png" alt="" class="img-thumbnail" width="200" height="250">`)
+	break
+	case '-2':  
+	$('#SAM3').html(`<img src="/images/SAM/SAM 13-3.png" alt="" class="img-thumbnail" width="200" height="250">`)
+	break
+	case '-1':  
+	$('#SAM3').html(`<img src="/images/SAM/SAM 13-4.png" alt="" class="img-thumbnail" width="200" height="250">`)
+	break
+	case '0': 
+	$('#SAM3').html(`<img src="/images/SAM/SAM 13-5.png" alt="" class="img-thumbnail" width="200" height="250">`)
+	break
 	case '1':  
-	$('#SAM3').html(`<img id="samimage" src="/images/SAM/SAM 13-1.png" alt="" class="img-thumbnail" width="200" height="250">`)
+	$('#SAM3').html(`<img src="/images/SAM/SAM 13-6.png" alt="" class="img-thumbnail" width="200" height="250">`)
 	break
 	case '2':  
-	$('#SAM3').html(`<img id="samimage" src="/images/SAM/SAM 13-2.png" alt="" class="img-thumbnail" width="200" height="250">`)
+	$('#SAM3').html(`<img src="/images/SAM/SAM 13-7.png" alt="" class="img-thumbnail" width="200" height="250">`)
 	break
 	case '3':  
-	$('#SAM3').html(`<img id="samimage" src="/images/SAM/SAM 13-3.png" alt="" class="img-thumbnail" width="200" height="250">`)
+	$('#SAM3').html(`<img src="/images/SAM/SAM 13-8.png" alt="" class="img-thumbnail" width="200" height="250">`)
 	break
 	case '4':  
-	$('#SAM3').html(`<img id="samimage" src="/images/SAM/SAM 13-4.png" alt="" class="img-thumbnail" width="200" height="250">`)
-	break
-	case '5':  
-	$('#SAM3').html(`<img id="samimage" src="/images/SAM/SAM 13-5.png" alt="" class="img-thumbnail" width="200" height="250">`)
+	$('#SAM3').html(`<img src="/images/SAM/SAM 13-9.png" alt="" class="img-thumbnail" width="200" height="250">`)
 	break
 }
 }, false);
@@ -382,7 +482,7 @@ switch(i3.value){
                     chunck.push(e.data)
                 })
                 mediaRecorder.addEventListener('stop', e=>{
-                    ablob = new Blob(chunck, {type : "audio/x-wav"})
+                    ablob = new Blob(chunck, {type : "audio/mpeg-3"})
                     audio_url = URL.createObjectURL(ablob)
                     audio = new Audio(audio_url)
                     audio.setAttribute("controls",1)
@@ -423,14 +523,15 @@ switch(i3.value){
         request.open('POST','upload.php', true);
 		if(this.ablob==undefined){
 			alert("Áudio Vazio")
-
 		}else{
+		if(this.ablob.size>=20000000){
+			alert("Áudio Muito Grande! Favor regravar com tempo menor. O ideal é que não ultrapasse de três minutos, você pode enviar quantos você desejar. ")
+		} else {
 		request.send(data2)
 		alert("Enviado")
-		//validateCaptcha()
+		validateCaptcha()
 		}
-
-
+		}	
 	}
 
 	var code;

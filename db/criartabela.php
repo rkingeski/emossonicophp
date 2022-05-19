@@ -2,7 +2,7 @@
 
 require_once "conexao.php";
 
-$sql = "CREATE TABLE IF NOT EXISTS audios(
+$sql = "CREATE TABLE IF NOT EXISTS audiosaprovados(
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     filename VARCHAR(100) NOT NULL, 
     emocao VARCHAR(100) NOT NULL,
@@ -14,7 +14,9 @@ $sql = "CREATE TABLE IF NOT EXISTS audios(
     sam3 INT,
     data VARCHAR(40),
     IP TEXT,
-    forma VARCHAR(20) NOT NULL
+    forma VARCHAR(20) NOT NULL,
+    votoc INT,
+    votod INT
 )";
 
 $conexao = novaConexao();
