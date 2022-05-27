@@ -58,7 +58,7 @@
 						<a class="nav-link" href="../views/gravar.php">Gravar</a>
 					  </li>
 					  <li class="nav-item">
-						<a class="nav-link" href="../views/banco.php">Banco</a>
+						<a class="nav-link" href="../views/banco.php?page=1">Banco</a>
 					  </li>
 					  <li class="nav-item">
 						<a class="nav-link" href="../views/sobre.php">Sobre</a>

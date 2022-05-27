@@ -481,9 +481,9 @@ switch(i3.value){
 		if(this.ablob.size>=20000000){
 			alert("Áudio Muito Grande! Favor regravar com tempo menor. O ideal é que não ultrapasse de três minutos, você pode enviar quantos você desejar. ")
 		} else {
-		request.send(data2)
-		alert("Enviado")
+		//alert("Enviado")
 		validateCaptcha()
+		request.send(data2)
 		}
 		}	
 	}
@@ -519,7 +519,7 @@ switch(i3.value){
 	debugger
 	if (document.getElementById("cpatchaTextBox").value == code) {
 		alert("Enviado!")
-		//document.location.reload()
+		document.location.reload()
 	}else{
 		alert("Invalid Captcha. try Again");
 		createCaptcha();

@@ -1,11 +1,30 @@
 <?php
 include('../includes/header.php');
-require_once "../db/conexao.php";
-
-if (empty($_SESSION['token2']))
+if (empty($_SESSION['token2'])){
 	$_SESSION['token2'] = base64_encode(random_bytes(32));
+}
+if (isset($_GET["page"])) {
+	$page  = $_GET["page"];
+} else {
+	$page=1;
+};
 
-$sql = "SELECT id, emocao, filename, idade, sexo, descricao, sam1, sam2, sam3, data, IP, forma FROM audios";
+require_once "../db/conexao.php";
+$start = 1 + 2 * ($page - 1);
+$rows = 2 ;
+// 
+$results_per_page = 2;  
+$page_first_result = ($page-1) * $results_per_page;
+
+$sql = "SELECT id, emocao, filename, idade, sexo, descricao, sam1, sam2, sam3, data, IP, forma FROM audios";  
+$conexao = novaConexao();
+$resultado = $conexao->query($sql);
+$number_of_result = mysqli_num_rows($resultado);  
+  
+//determine the total number of pages available  
+$number_of_page = ceil ($number_of_result / $results_per_page);  
+
+$sql = "SELECT id, emocao, filename, idade, sexo, descricao, sam1, sam2, sam3, data, IP, forma FROM audios LIMIT $page_first_result , $results_per_page";
 
 $conexao = novaConexao();
 $resultado = $conexao->query($sql);
@@ -20,6 +39,14 @@ if($resultado->num_rows > 0) {
     echo "Erro: " . $conexao->error;
 }
 
+
+$number_of_results = mysqli_num_rows($resultado);
+$results_per_page = 2;
+$number_of_pages = ceil($number_of_results/$results_per_page);
+
+
+
+
 $conexao->close();
 ?>
 
@@ -27,7 +54,7 @@ $conexao->close();
 
 <div class="container mt-4 px-4 col-lg-10">
 	<ul class="list-group">
-		<li class="list-group-item list-group-item-dark text-center"><b>Banco de Vozes</b></li>
+		<li class="list-group-item list-group-item-dark text-center"><b>Banco de Voz</b></li>
 		<li class="list-group-item">
 			<form action="" method="post" name='filtro'>
 				<div class="row">
@@ -85,7 +112,9 @@ $conexao->close();
         <th scope="col">Data</th>
 	</thead>
     <tbody>
-        <?php foreach($registros as $registro): ?>
+	<?php
+	 foreach($registros as $registro):
+	?>
             <tr>
                 <td><?= $registro['id'] ?></td>
                 <td><?= $registro['idade'] ?></td>
@@ -130,10 +159,16 @@ $conexao->close();
 				</div>
 				</td>
 			</tr>
-
-        <?php endforeach ?>
+	<?php
+	endforeach
+	?>
     </tbody>
+
 </table>
+<?php for($page = 1; $page<= $number_of_page; $page++) {  
+        echo '<a href = "/views/banco.php?page=' . $page . '">' . $page . ' </a>';  
+    }
+	?>
 </div>
 
 </body>

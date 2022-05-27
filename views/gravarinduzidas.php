@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(!isset($_SESSION['termo'])) //verifica se termo foi assinado
-	header("Location: ./termo.php");
+	header("Location: ./termoinduzidas.php");
 
 //proteção CSRF
 if (empty($_SESSION['token']))
@@ -75,9 +75,13 @@ p[type="center"]{
 	}
 }
 
+
+
+
 </style>
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://www.youtube.com/iframe_api"></script>
 
 <body onload="createCaptcha()">
 
@@ -87,49 +91,207 @@ p[type="center"]{
 
         <p>Ao gravar, você está concordando com os <a href="termo">Termos</a>.</p>
 
-		<p>
-			<a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-				Videos
-			</a>
-			<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-				Button with data-bs-target
-			</button>
-		</p>
-		<div class="collapse" id="collapseExample">
-			<div class="card card-body">
-			<p>
-				<a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample2">
-					Link with href
-				</a>
-				<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2">
-					Button with data-bs-target
+		<div class="accordion" id="accordionExample">
+			<div class="accordion-item">
+				<h2 class="accordion-header" id="headingOne">
+				<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+					Vídeos
 				</button>
-			</p>
-			<div class="collapse" id="collapseExample2">
-				<div class="card card-body">
-					Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+				</h2>
+				<div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+							<div class="accordion-body">
+
+
+
+							
+
+								<div class="accordion" id="accordionVideos">
+								<div class="accordion-item">
+									<h2 class="accordion-header" id="headingOne">
+									<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTristeza" aria-expanded="false" aria-controls="collapseTristeza">
+										Tristeza
+									</button>
+									</h2>
+									<div id="collapseTristeza" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionVideos">
+									<div class="accordion-body">
+										
+									
+									<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000000000000" data-bs-ride="false">
+										<div class="carousel-indicators">
+											<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+											<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+											<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+										</div>
+										<div class="carousel-inner">
+											<div class="carousel-item active">
+											<iframe class="d-block w-100" width="560" height="380" src="https://www.youtube.com/embed/iz7PAJGdlqU" title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+											</div>
+											<div class="carousel-item">
+											<iframe class="d-block w-100" width="560" height="380" src="https://www.youtube.com/embed/1OynFyRO6xk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+											</div>
+											<div class="carousel-item">
+											<iframe class="d-block w-100" width="560" height="380" src="https://www.youtube.com/embed/naU6im1d4bU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+											</div>
+										</div>
+										<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+											<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+											<span class="visually-hidden">Previous</span>
+										</button>
+										<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+											<span class="carousel-control-next-icon" aria-hidden="true"></span>
+											<span class="visually-hidden">Next</span>
+										</button>
+									</div>
+
+
+
+									</div>
+									</div>
+								</div>
+								<div class="accordion-item">
+									<h2 class="accordion-header" id="headingTwo">
+									<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFelicidade" aria-expanded="false" aria-controls="collapseFelicidade">
+										Felicidade
+									</button>
+									</h2>
+									<div id="collapseFelicidade" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionVideos">
+									<div class="accordion-body">
+										<strong>VAZIO</strong>
+									</div>
+									</div>
+								</div>
+								<div class="accordion-item">
+									<h2 class="accordion-header" id="headingThree">
+									<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSurpresa" aria-expanded="false" aria-controls="collapseSurpresa">
+										Surpresa
+									</button>
+									</h2>
+									<div id="collapseSurpresa" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionVideos">
+									<div class="accordion-body">
+										<strong>VAZIO</strong> 
+									</div>
+									</div>
+								</div>
+								<div class="accordion-item">
+									<h2 class="accordion-header" id="headingThree">
+									<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNojo" aria-expanded="false" aria-controls="collapseNojo">
+										Nojo
+									</button>
+									</h2>
+									<div id="collapseNojo" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionVideos">
+									<div class="accordion-body">
+
+											<iframe width="560" height="340" src="https://www.youtube.com/embed/dvp3dbphnPo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+									
+									</div>
+									</div>
+								</div>
+								<div class="accordion-item">
+									<h2 class="accordion-header" id="headingThree">
+									<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMedo" aria-expanded="false" aria-controls="collapseMedo">
+										Medo
+									</button>
+									</h2>
+									<div id="collapseMedo" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionVideos">
+									<div class="accordion-body">
+										<strong>VAZIO</strong> 
+									</div>
+									</div>
+								</div>
+								</div>
+
+
+
+
+
+
+
+							</div>
 				</div>
 			</div>
+			<div class="accordion-item">
+				<h2 class="accordion-header" id="headingTwo">
+				<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+					Jogos
+				</button>
+				</h2>
+				<div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+					<div class="accordion-body">
+						
+						
+
+						<div class="accordion" id="accordionJogo">
+
+							<div class="accordion-item">
+								<h2 class="accordion-header" id="headingThreeJogo">
+								<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMedoJogo" aria-expanded="false" aria-controls="collapseMedoJogo">
+								Medo
+								</button>
+								</h2>
+								<div id="collapseMedoJogo" class="accordion-collapse collapse" aria-labelledby="headingThreeJogo" data-bs-parent="#accordionJogo">
+									<div class="accordion-body">
+										
+									<div class="jogo2">
+									<iframe src="https://www.crazygames.com.br/embed/celestina-chapter-two" style="width: 100%; height: 700px;" frameborder="0"></iframe>
+									</div>
+
+									</div>
+								</div>	
+							</div>
+						
+							<div class="accordion-item">
+								<h2 class="accordion-header" id="headingFourJogo">
+								<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRaivaJogo" aria-expanded="false" aria-controls="collapseRaivaJogo">
+									Raiva
+								</button>
+								</h2>
+								<div id="collapseRaivaJogo" class="accordion-collapse collapse" aria-labelledby="headingFourJogo" data-bs-parent="#accordionJogo">
+									<div class="accordion-body">
+										<h5> I wanna Be The Guy </h5>
+										
+
+										<p>Controles do jogo:
+											<ul class="list-group list-group-horizontal">
+												<li class="list-group-item">Mover-se: setas</li>
+												<li class="list-group-item">Saltar: Espaço</li>
+												<li class="list-group-item">Atirar: Z</li>
+											</ul>	
+										
+											
+											
+										</p>
+										<div class="jogo">
+										<iframe src='https://www.minijuegos.com/embed/i-wanna-be-the-guy' style='width:100%;height: 700px;' frameborder='0' allowfullscreen></iframe>
+										</div>
+								
+									</div>
+									
+
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
 			</div>
 		</div>
 
-		<div class="game-player-container" style="/*width:750px;*/">
 
-		<div class="jogo">
-		<iframe src='https://www.minijuegos.com/embed/i-wanna-be-the-guy' style='width:100%;height: 500px;' frameborder='0' allowfullscreen></iframe>
-		</div>
 
-		<div class="container mt-4 px-4 col-md-8">
-			<div class="">
-			<iframe width="560" height="340" src="https://www.youtube.com/embed/iz7PAJGdlqU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-			</div>
-			<div class="">
-			<iframe width="560" height="340" src="https://www.youtube.com/embed/dvp3dbphnPo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-			</div>
-			<div class="">
-			<iframe width="560" height="340" src="https://www.youtube.com/embed/1OynFyRO6xk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-			</div>
-		</div>
+				<!-- </div>
+				</div>
+			</div> -->
+
+
+			<!-- <div class="jogo">
+				<iframe src='https://www.minijuegos.com/embed/i-wanna-be-the-guy' style='width:100%;height: 700px;' frameborder='0' allowfullscreen></iframe>
+				</div>
+
+			<div class="jogo2">
+				<iframe src="https://www.crazygames.com.br/embed/celestina-chapter-two" style="width: 100%; height: 700px;" frameborder="0"></iframe>
+				</div> -->
+
+
 
 
 
@@ -527,9 +689,9 @@ switch(i3.value){
 		if(this.ablob.size>=20000000){
 			alert("Áudio Muito Grande! Favor regravar com tempo menor. O ideal é que não ultrapasse de três minutos, você pode enviar quantos você desejar. ")
 		} else {
-		request.send(data2)
-		alert("Enviado")
+		//alert("Enviado")
 		validateCaptcha()
+		request.send(data2)
 		}
 		}	
 	}
@@ -565,14 +727,13 @@ switch(i3.value){
 	debugger
 	if (document.getElementById("cpatchaTextBox").value == code) {
 		alert("Enviado!")
-		//document.location.reload()
+		document.location.reload()
 	}else{
 		alert("Invalid Captcha. try Again");
 		createCaptcha();
 	}
 	}
 
-	
 	
 
 
