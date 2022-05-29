@@ -86,10 +86,12 @@ p[type="center"]{
 <body onload="createCaptcha()">
 
     <div class="container mt-4 px-4 col-md-8">
-        <h2>Gravador de Áudio</h2>
-        <p class='lead'>Grave aqui sua emoção</p>
+        <h3>Gravador de Áudio</h3>
 
         <p>Ao gravar, você está concordando com os <a href="termo">Termos</a>.</p>
+
+		<p>Abaixo você pode escolher dois tipos de atividades, assistir vídeos ou jogar. Selecione o que preferir em seguida selecione a emoção, clique nas setas para passar os videos.</p>
+
 
 		<div class="accordion" id="accordionExample">
 			<div class="accordion-item">
@@ -156,7 +158,37 @@ p[type="center"]{
 									</h2>
 									<div id="collapseFelicidade" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionVideos">
 									<div class="accordion-body">
-										<strong>VAZIO</strong>
+										
+									
+									<div id="carouselFelicidade" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000000000000" data-bs-ride="false">
+										<div class="carousel-indicators">
+											<button type="button" data-bs-target="#carouselFelicidade" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+											<button type="button" data-bs-target="#carouselFelicidade" data-bs-slide-to="1" aria-label="Slide 2"></button>
+											<button type="button" data-bs-target="#carouselFelicidade" data-bs-slide-to="2" aria-label="Slide 3"></button>
+										</div>
+										<div class="carousel-inner">
+											<div class="carousel-item active">
+											<iframe class="d-block w-100" width="560" height="380" src="https://www.youtube.com/embed/eX2qFMC8cFo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+											</div>
+											<div class="carousel-item">
+											<iframe class="d-block w-100" width="560" height="380" src="https://www.youtube.com/embed/3a7BPfcev50" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+											</div>
+											<div class="carousel-item">
+											<iframe class="d-block w-100" width="560" height="380" src="https://www.youtube.com/embed/D3oq9T0_VCo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+											</div>
+										</div>
+										<button class="carousel-control-prev" type="button" data-bs-target="#carouselFelicidade" data-bs-slide="prev">
+											<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+											<span class="visually-hidden">Previous</span>
+										</button>
+										<button class="carousel-control-next" type="button" data-bs-target="#carouselFelicidade" data-bs-slide="next">
+											<span class="carousel-control-next-icon" aria-hidden="true"></span>
+											<span class="visually-hidden">Next</span>
+										</button>
+									</div>
+
+
+
 									</div>
 									</div>
 								</div>
@@ -168,7 +200,43 @@ p[type="center"]{
 									</h2>
 									<div id="collapseSurpresa" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionVideos">
 									<div class="accordion-body">
-										<strong>VAZIO</strong> 
+										
+									
+
+									<div id="carouselSurpresa" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000000000000" data-bs-ride="false">
+										<div class="carousel-indicators">
+											<button type="button" data-bs-target="#carouselSurpresa" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+											<button type="button" data-bs-target="#carouselSurpresa" data-bs-slide-to="1" aria-label="Slide 2"></button>
+											<button type="button" data-bs-target="#carouselSurpresa" data-bs-slide-to="2" aria-label="Slide 3"></button>
+										</div>
+										<div class="carousel-inner">
+											<div class="carousel-item active">
+											<iframe class="d-block w-100" width="560" height="380" src="https://www.youtube.com/embed/dvp3dbphnPo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+											</div>
+											<div class="carousel-item">
+											<iframe class="d-block w-100" width="560" height="380" src="https://www.youtube.com/embed/R8n_teZji7A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+											</div>
+											<div class="carousel-item">
+											<iframe class="d-block w-100" width="560" height="380" src="https://www.youtube.com/embed/6x0mKnxLMTk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+											</div>
+										</div>
+										<button class="carousel-control-prev" type="button" data-bs-target="#carouselSurpresa" data-bs-slide="prev">
+											<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+											<span class="visually-hidden">Previous</span>
+										</button>
+										<button class="carousel-control-next" type="button" data-bs-target="#carouselSurpresa" data-bs-slide="next">
+											<span class="carousel-control-next-icon" aria-hidden="true"></span>
+											<span class="visually-hidden">Next</span>
+										</button>
+									</div>
+
+
+
+
+
+
+
+
 									</div>
 									</div>
 								</div>
@@ -181,7 +249,35 @@ p[type="center"]{
 									<div id="collapseNojo" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionVideos">
 									<div class="accordion-body">
 
-											<iframe width="560" height="340" src="https://www.youtube.com/embed/dvp3dbphnPo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+									<div id="carouselNojo" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000000000000" data-bs-ride="false">
+										<div class="carousel-indicators">
+											<button type="button" data-bs-target="#carouselNojo" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+											<button type="button" data-bs-target="#carouselNojo" data-bs-slide-to="1" aria-label="Slide 2"></button>
+											<button type="button" data-bs-target="#carouselNojo" data-bs-slide-to="2" aria-label="Slide 3"></button>
+										</div>
+										<div class="carousel-inner">
+											<div class="carousel-item active">
+											<iframe class="d-block w-100" width="560" height="380" src="https://www.youtube.com/embed/dvp3dbphnPo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+											</div>
+											<div class="carousel-item">
+											<iframe class="d-block w-100" width="560" height="380" src="https://www.youtube.com/embed/R8n_teZji7A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+											</div>
+											<div class="carousel-item">
+											<iframe class="d-block w-100" width="560" height="380" src="https://www.youtube.com/embed/6x0mKnxLMTk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+											</div>
+										</div>
+										<button class="carousel-control-prev" type="button" data-bs-target="#carouselNojo" data-bs-slide="prev">
+											<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+											<span class="visually-hidden">Previous</span>
+										</button>
+										<button class="carousel-control-next" type="button" data-bs-target="#carouselNojo" data-bs-slide="next">
+											<span class="carousel-control-next-icon" aria-hidden="true"></span>
+											<span class="visually-hidden">Next</span>
+										</button>
+									</div>
+
+
 									
 									</div>
 									</div>

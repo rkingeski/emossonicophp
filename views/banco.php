@@ -41,7 +41,7 @@ if($resultado->num_rows > 0) {
 
 
 $number_of_results = mysqli_num_rows($resultado);
-$results_per_page = 2;
+$results_per_page = 50;
 $number_of_pages = ceil($number_of_results/$results_per_page);
 
 
