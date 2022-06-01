@@ -69,8 +69,8 @@ include('../includes/header.php');
 
 				<div class="mt-4 text-center">
 					<form action="" method="post">
-						<button name='aceito' type="submit" class='btn btn-primary' value='1'>Li e concordo com os termos</button>
-						<button name='aceito' type="submit" class='btn btn-secondary' value='0'>Não concordo</button>
+						<button name='aceito' type="submit" class='btn btn-primary mt-1' value='1'>Li e concordo com os termos</button>
+						<button name='aceito' type="submit" class='btn btn-secondary mt-1' value='0'>Não concordo</button>
 					</form>
 				</div>
 
