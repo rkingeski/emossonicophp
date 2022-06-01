@@ -4,7 +4,7 @@ include('../includes/header.php');
 
 <body>
     <div class="container-sm">
-    <form class="contact-form" action="send" method="post" enctype = "multipart/form-data">
+    <form class="contact-form" action="" method="post" enctype = "multipart/form-data">
         <div class="card p-2" >
             <div class="card-header p-2">
                 <div class="bg-secondary text-white text-center py-2">
@@ -35,18 +35,32 @@ include('../includes/header.php');
                         <input id="email" name="email" type="email" class="form-control"  placeholder="exemplo@gmail.com" required>
                     </div>
                 </div>
-    
+                
                 <div class="form-group">
                     <div class="input-group mb-2">
                         <div class="input-group-prepend">
                             <div class="input-group-text"><i class="fa fa-comment text-primary"></i></div>
                         </div>
-                        <textarea class="form-control" placeholder="Sua mensagem" id="message" name="message" required></textarea>
+                        <input type="text" class="form-control" placeholder="Assunto" id="subject" name="subject" required></textarea>
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text"><i class="fa fa-comment text-primary"></i></div>
+                        </div>
+                        <textarea class="form-control" placeholder="Sua mensagem" id="msg" name="msg" required></textarea>
                     </div>
                 </div>
     
                 <div class="text-center">
                     <input id="enviar" name="enviar" type="submit" value="Enviar" class="btn btn-primary">
+                    <?php if ($responses): ?>
+                    <p class="responses"><?php echo implode('<br>', $responses); ?></p>
+                    <?php endif; ?>
                 </div>
             </div>
     
@@ -64,116 +78,39 @@ include('./includes/footer.php');
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 
-<script>
-
-const contactForm = document.querySelector('.contact-form');
-let name = document.getElementById('name');
-let email = document.getElementById('email');
-let message = document.getElementById('message');
-
-contactForm.addEventListener('submit', (e)=>{
-    e.preventDefault();
-
-    let formData = {
-        name: name.value,
-        email: email.value,
-        message: message.value
-    }
-
-    let xhr =new XMLHttpRequest();
-    xhr.open('POST', '/send')
-    xhr.setRequestHeader('content-type', 'application/json');
-    xhr.onload = function() {
-        console.log(xhr.responseText);
-        if(xhr.responseText == 'success'){
-            alert('Email Enviado');
-            name.value = '';
-            email.value = '';
-            message.value ='';
-        }
-        else{
-            alert('Algo deu errado! Tente Novamente')
-        }
-    }
-
-    xhr.send(JSON.stringify(formData))
-})
-
-</script>
-
 <?php
-  
-if($_POST) {
-    $visitor_name = "";
-    $visitor_email = "";
-    $email_title = "";
-    $concerned_department = "";
-    $visitor_message = "";
-    $email_body = "<div>";
-      
-    if(isset($_POST['visitor_name'])) {
-        $visitor_name = filter_var($_POST['visitor_name'], FILTER_SANITIZE_STRING);
-        $email_body .= "<div>
-                           <label><b>Visitor Name:</b></label>&nbsp;<span>".$visitor_name."</span>
-                        </div>";
-    }
- 
-    if(isset($_POST['visitor_email'])) {
-        $visitor_email = str_replace(array("\r", "\n", "%0a", "%0d"), '', $_POST['visitor_email']);
-        $visitor_email = filter_var($visitor_email, FILTER_VALIDATE_EMAIL);
-        $email_body .= "<div>
-                           <label><b>Visitor Email:</b></label>&nbsp;<span>".$visitor_email."</span>
-                        </div>";
-    }
-      
-    if(isset($_POST['email_title'])) {
-        $email_title = filter_var($_POST['email_title'], FILTER_SANITIZE_STRING);
-        $email_body .= "<div>
-                           <label><b>Reason For Contacting Us:</b></label>&nbsp;<span>".$email_title."</span>
-                        </div>";
-    }
-      
-    if(isset($_POST['concerned_department'])) {
-        $concerned_department = filter_var($_POST['concerned_department'], FILTER_SANITIZE_STRING);
-        $email_body .= "<div>
-                           <label><b>Concerned Department:</b></label>&nbsp;<span>".$concerned_department."</span>
-                        </div>";
-    }
-      
-    if(isset($_POST['visitor_message'])) {
-        $visitor_message = htmlspecialchars($_POST['visitor_message']);
-        $email_body .= "<div>
-                           <label><b>Visitor Message:</b></label>
-                           <div>".$visitor_message."</div>
-                        </div>";
-    }
-      
-    if($concerned_department == "billing") {
-        $recipient = "billing@domain.com";
-    }
-    else if($concerned_department == "marketing") {
-        $recipient = "marketing@domain.com";
-    }
-    else if($concerned_department == "technical support") {
-        $recipient = "tech.support@domain.com";
-    }
-    else {
-        $recipient = "contact@domain.com";
-    }
-      
-    $email_body .= "</div>";
- 
-    $headers  = 'MIME-Version: 1.0' . "\r\n"
-    .'Content-type: text/html; charset=utf-8' . "\r\n"
-    .'From: ' . $visitor_email . "\r\n";
-      
-    if(mail($recipient, $email_title, $email_body, $headers)) {
-        echo "<p>Thank you for contacting us, $visitor_name. You will get a reply within 24 hours.</p>";
-    } else {
-        echo '<p>We are sorry but the email did not go through.</p>';
-    }
-      
-} else {
-    echo '<p>Something went wrong</p>';
+// Output messages
+$responses = [];
+// Check if the form was submitted
+if (isset($_POST['email'], $_POST['subject'], $_POST['name'], $_POST['msg'])) {
+	// Validate email adress
+	if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+		$responses[] = 'Email is not valid!';
+	}
+	// Make sure the form fields are not empty
+	if (empty($_POST['email']) || empty($_POST['subject']) || empty($_POST['name']) || empty($_POST['msg'])) {
+		$responses[] = 'Please complete all fields!';
+	} 
+	// If there are no errors
+	if (!$responses) {
+		// Where to send the mail? It should be your email address
+		$to      = 'rafaelkingeski@gmail.com';
+		// Send mail from which email address?
+		$from = 'contact@emossonico.com';
+		// Mail subject
+		$subject = $_POST['subject'];
+		// Mail message
+		$message = $_POST['msg'];
+		// Mail headers
+		$headers = 'From: ' . $from . "\r\n" . 'Reply-To: ' . $_POST['email'] . "\r\n" . 'X-Mailer: PHP/' . phpversion();
+		// Try to send the mail
+		if (mail($to, $subject, $message, $headers)) {
+			// Success
+			echo('<div class="container-sm"> <p>Mensagem Enviada!</p> </div>');		
+		} else {
+			// Fail
+			echo('<div class="container-sm"> <p>Erro! Mensagem não Enviada! Entre em contato com rafaelkingeski@gmail.com</p> </div>');
+		}
+	}
 }
 ?>

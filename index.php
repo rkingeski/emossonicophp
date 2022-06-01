@@ -19,7 +19,7 @@ include('./includes/header.php');
 		<div class="jumbotron rounded py-4">
 			<div class="container-sm">
 				<h1 class="display-4">Emossônico</h1>
-				<p>Um Banco de Dados de vozes colaborativo</p>
+				<p>Um Banco de Gravações de Voz Colaborativo</p>
 			</div>
 		</div>
 	</div>
@@ -27,15 +27,15 @@ include('./includes/header.php');
 	<div class="container mt-4">
 		<h2>Bem-Vindo!</h2>
 		<p>Este site tem como objetivo coletar e compartilhar a forma como as pessoas falam, ou seja, as emoções que elas transmitem pela voz.</p>
-		<p>Quando falamos não necessariamente estamos sentindo alguma emoção e mesmo quando sentimos podemos expressar isso em diferentes intesidades.</p>
-		<p class="fs-5">Colabore com este projeto, abaixo você pode escolher gravar a sua voz de duas formas:</p>
+		<p>Quando falamos não necessariamente estamos sentindo alguma emoção e mesmo quando sentimos podemos expressar a emoção em diferentes intesidades.</p>
+		<p class="fs-5">Colabore com este projeto, clicando abaixo para escolher como gravará sua voz expressando emoção.</p>
 		<div class="row justify-content-around mt-4">
 			<div class="container-fluid col-md-6 mt-2">
 				<div class="card">
 					<div class="card-header"><h5>Emoções Espontaneas</h5></div>
 					<div class="card-body">
 						
-						<p class="card-text">De forma livre, onde você pode gravar simulando a emoção que escolher ou você pode gravar num momento em que você está sentindo alguma emoção e queira contribuir para nosso base de dados.</p>
+						<p class="card-text">Clicando no botão abaixo, onde você pode gravar simulando a emoção que escolher ou você pode gravar num momento em que você está sentindo alguma emoção e queira contribuir para a contrução da nossa base de dados.</p>
 						<a href="views/gravar.php" class="btn btn-primary">Clique Aqui</a>
 					</div>
 				</div>
@@ -44,7 +44,7 @@ include('./includes/header.php');
 				<div class="card">
 					<div class="card-header"><h5>Emoções Induzidas</h5></div>
 					<div class="card-body">
-						<p class="card-text">De forma induzida, onde você escolhe ver imagens ou vídeos e registra sua voz e a emoção que você sentiu.</p>
+						<p class="card-text">Clicando no botão abaixo, você acessa a página para resgitrar sua voz após escolher imagens, vídeos ou jogos para induzir emoções.</p>
 						<a href="views/gravarinduzidas.php" class="btn btn-primary">Clique Aqui</a>
 					</div>
 				</div>
