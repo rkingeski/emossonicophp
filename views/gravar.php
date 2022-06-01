@@ -160,7 +160,7 @@ p[type="center"]{
 
 			<div class="row">
 				<div class="col-sm mt-2">
-					<input class="form-control form-control-sm" type="text" id='outra' name='outra' style='display:none' placeholder="Descreva">
+					<input class="form-control form-control-sm" type="text" id='Outra' name='Outra' style='display:none' placeholder="Descreva">
 				</div>
 			</div>
 
