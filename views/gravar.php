@@ -82,31 +82,39 @@ p[type="center"]{
 <body onload="createCaptcha()">
 
     <div class="container mt-4 px-4 col-md-8">
-        <h2>Gravador de Áudio</h2>
-        <p class='lead'>Grave aqui sua emoção</p>
+        <h3>Grave aqui sua emoção</h3>
+
 
         <p>Ao gravar, você está concordando com os <a href="termo">Termos</a>.</p>
     
 
 
-		<div class="container mt-4 px-2 col-md-8 m-2">
+		<div class="container mt-3 px-2 col-md-8 m-2">
+
+		<div class="gravador">
 
 			<div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-				<div><button id="recButton" type="record" class="notRec">Gravar</button> <p type="center">Gravar</p> </div>
-				<div><button id="parar" type="stop" class="btn btn-secondary" disabled>Parar</button>  <p type="center">Parar</p> </div>
+					<div><button id="recButton" type="record" class="notRec">Gravar</button> <p type="center">Gravar</p> </div>
+					<div><button id="parar" type="stop" class="btn btn-secondary" disabled>Parar</button>  <p type="center">Parar</p> </div>
+				
 			</div>
 
 			<div id='audiofiles' class="container mt-2 px-2 col-md-8 m-2 mb-2"></div>
 
-			<button id="excluir" class='btn btn-secondary'><span class='bi bi-trash'><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-				<path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
-				<path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
-			  </svg></span>Excluir</button>
+			<button id="excluir" class='btn btn-secondary ml-3'><span class='bi bi-trash'><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+					<path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+					<path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+					</svg></span>Excluir</button> 
+
+		</div>
 
         
-        <form id='form' action="upload.php" method='post' name='formu' enctype="multipart/form-data" onsubmit="validateCaptcha()">
+        <form id='form' class="mt-3" action="upload.php" method='post' name='formu' enctype="multipart/form-data" onsubmit="validateCaptcha()">
 			<input type="hidden" name="_token" value="<?php echo $_SESSION['token'] ?>"> 
 			<input type="hidden" name="forma" value="natural"> 
+
+			<p>Preencha os campos abaixo:</p>
+
 			<div class="form-row">
                 <div class="col-sm-3 mt-2">
 					<input id="idade" name="idade" type="number" min="18" max="100" placeholder="Idade" class='form-control form-control-sm' required>
@@ -147,7 +155,7 @@ p[type="center"]{
 			
 		</div>
 
-		<div class="mt-5 px-2 col-md-8 m-1"><h5>Escala de auto avaliação</h5>
+		<div class="container mt-5 px-2 col-md-8 m-1"><h5>Escala de auto avaliação</h5>
 		<p>
 			Deslize o ponteiro na direção que corresponde a forma como você está se sentindo na gravação, as figuras serão alteradas conforme o nível selecionado.
 		</p>

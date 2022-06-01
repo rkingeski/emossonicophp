@@ -45,6 +45,17 @@ button[type="stop"] {
 	outline: none;
 }
 
+button[type="garbage"] {
+	width: 35px;
+	height: 35px;
+	font-size: 0;
+	background-color: none;
+	border: 0;
+	border-radius: 4px;
+	margin: 18px;
+	outline: none;
+}
+
 
 
 .notRec{
@@ -90,10 +101,27 @@ p[type="center"]{
 
         <p>Ao gravar, você está concordando com os <a href="termo">Termos</a>.</p>
 
-		<p>Abaixo você pode escolher dois tipos de atividades, assistir vídeos ou jogar. Selecione o que preferir em seguida selecione a emoção, clique nas setas para passar os videos.</p>
+		<p class="text">Abaixo você pode escolher dois tipos de atividades, assistir vídeos ou jogar. Selecione o que preferir em seguida selecione a emoção, clique nas setas para passar os videos. Caso queira gravar enquanto assiste aos vídeos recomenda-se que utilize fones de ouvido, lembre-se cada áudio deve conter apenas uma emoção e não deve ultrapassar 15 minutos.</p>
 
 
-		<div class="accordion" id="accordionExample">
+		<div class="gravador">
+
+			<div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+					<div><button id="recButton" type="record" class="notRec">Gravar</button> <p type="center">Gravar</p> </div>
+					<div><button id="parar" type="stop" class="btn btn-secondary" disabled>Parar</button>  <p type="center">Parar</p> </div>
+				
+			</div>
+
+			<div id='audiofiles' class="container mt-2 px-2 col-md-8 m-2 mb-2"></div>
+
+			<button id="excluir" class='btn btn-secondary ml-3'><span class='bi bi-trash'><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+					<path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+					<path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+					</svg></span>Excluir</button> 
+
+		</div>
+
+		<div class="accordion mt-4 mb-2" id="accordionExample">
 			<div class="accordion-item">
 				<h2 class="accordion-header" id="headingOne">
 				<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
@@ -211,14 +239,14 @@ p[type="center"]{
 										</div>
 										<div class="carousel-inner">
 											<div class="carousel-item active">
-											<iframe class="d-block w-100" width="560" height="380" src="https://www.youtube.com/embed/dvp3dbphnPo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+											<iframe class="d-block w-100" width="560" height="380" src="https://www.youtube.com/embed/LtpBfwdfnXk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+											</div>
+											<!-- <div class="carousel-item">
+											
 											</div>
 											<div class="carousel-item">
-											<iframe class="d-block w-100" width="560" height="380" src="https://www.youtube.com/embed/R8n_teZji7A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-											</div>
-											<div class="carousel-item">
-											<iframe class="d-block w-100" width="560" height="380" src="https://www.youtube.com/embed/6x0mKnxLMTk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-											</div>
+											
+											</div> -->
 										</div>
 										<button class="carousel-control-prev" type="button" data-bs-target="#carouselSurpresa" data-bs-slide="prev">
 											<span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -395,22 +423,13 @@ p[type="center"]{
 
 		<div class="container mt-4 px-2 col-md-8 m-2">
 
-			<div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-				<div><button id="recButton" type="record" class="notRec">Gravar</button> <p type="center">Gravar</p> </div>
-				<div><button id="parar" type="stop" class="btn btn-secondary" disabled>Parar</button>  <p type="center">Parar</p> </div>
-			</div>
-
-			<div id='audiofiles' class="container mt-2 px-2 col-md-8 m-2 mb-2"></div>
-
-			<button id="excluir" class='btn btn-secondary'><span class='bi bi-trash'><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-				<path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
-				<path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
-			  </svg></span>Excluir</button>
-
         
         <form id='form' action="upload.php" method='post' name='formu' enctype="multipart/form-data" onsubmit="validateCaptcha()">
 			<input type="hidden" name="_token" value="<?php echo $_SESSION['token'] ?>"> 
 			<input type="hidden" name="forma" value="induzida"> 
+			
+			<p>Preencha os campos abaixo:</p>
+			
 			<div class="form-row">
                 <div class="col-sm-3 mt-2">
 					<input id="idade" name="idade" type="number" min="18" max="100" placeholder="Idade" class='form-control form-control-sm' required>
