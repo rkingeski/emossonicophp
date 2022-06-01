@@ -44,7 +44,7 @@ include('./includes/header.php');
 				<div class="card">
 					<div class="card-header"><h5>Emoções Induzidas</h5></div>
 					<div class="card-body">
-						<p class="card-text">Clicando no botão abaixo, você acessa a página para resgitrar sua voz após escolher imagens, vídeos ou jogos para induzir emoções.</p>
+						<p class="card-text">Clicando no botão abaixo, você acessa a página para registrar sua voz após escolher imagens, vídeos ou jogos para induzir emoções.</p>
 						<a href="views/gravarinduzidas.php" class="btn btn-primary">Clique Aqui</a>
 					</div>
 				</div>
