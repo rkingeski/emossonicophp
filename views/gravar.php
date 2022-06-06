@@ -259,7 +259,7 @@ p[type="center"]{
 				</div>
 
 
-	</div>
+		</div>
 
 
 
@@ -316,9 +316,6 @@ if(val == 'Outra'){
 	document.getElementById('Outra').style.display='block'
 }
 }
-
-
-
 
 
 

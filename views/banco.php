@@ -146,7 +146,7 @@ $conexao->close();
 				</td>
 
 				<td>
-				<form id='form' class="mt-3" action="votacao.php" method='post' name='formu' enctype="multipart/form-data">
+				<form id='form2' class="mt-3" action="votacao.php" method='post' name='formu2' enctype="multipart/form-data">
 
 					<div class="btn-group" role="group" aria-label="Basic mixed styles example">
 					<button id="concordo<?= $registro['id'] ?>" class='btn btn-primary' onclick="vote1(<?= $registro['id'] ?>)"><span class=''><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-hand-thumbs-up" viewBox="0 0 16 16">

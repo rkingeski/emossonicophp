@@ -89,7 +89,7 @@ $date_a = date("d-m-Y");
         $filenamedb,
         $dados['idade'],
         $dados['sexo'],
-        $dados['outra'],
+        $dados['Outra'],
         $dados['sam1'],
         $dados['sam2'],
         $dados['sam3'],
