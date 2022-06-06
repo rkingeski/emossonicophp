@@ -1,66 +1,34 @@
 <?php
 
 session_start();
-if(!isset($_SESSION['token2'])){
-    header("HTTP/1.0 403 CSRF FAIL");
-    die();
-} else{
-    if($_SESSION['token2'] != $_POST['_token2']){
-        header("HTTP/1.0 403 CSRF FAIL");
-        die();
-    } else {
-        unset($_POST['_token2']);
-    }
-}
 
 require_once "../db/conexao.php";
 
-if($_POST['voto'] == 'concordo'){
-    $sql = "SELECT * FROM audios WHERE id = ?";
-    stmt = $conexao->prepare($sql);
-    $stmt->bind_param('i') 
+$idaudio = $_COOKIE['id'];
 
+
+$sql = "SELECT votoc, votod FROM audiosaprovados WHERE id=$idaudio";  
+$conexao = novaConexao();
+$resultado = $conexao->query($sql);
+$row = $resultado->fetch_assoc();
+
+if($_COOKIE['voto'] == 'concordo'){
+    $votoca = $row['votoc']+1;
+}else{
+    $votoca = $row['votoc'];
 }
 
-$sql = "INSERT INTO audios
-        (emocao, filename, idade, sexo, descricao, sam1, sam2, sam3, data, IP, forma)
-        VALUES  (
-            ?,
-            ?,
-            ?,
-            ?,
-            ?,
-            ?,
-            ?,
-            ?,
-            ?,
-            ?,
-            ?
-            
-        )";
+
+if($_COOKIE['voto']== 'discordo'){
+    $votoda = $row['votod']+1;
+} else{
+    $votoda = $row['votod'];
+}
+
+
+$sql ="UPDATE audiosaprovados SET votoc='$votoca', votod='$votoda' WHERE id=$idaudio";
 
 $conexao = novaConexao();
-$stmt = $conexao->prepare($sql);
+$resultadocon= $conexao->query($sql);
 
-$date_a = date("d-m-Y");
-    $params = [
-        $dados['emocao'],
-        $filenamedb,
-        $dados['idade'],
-        $dados['sexo'],
-        $dados['outra'],
-        $dados['sam1'],
-        $dados['sam2'],
-        $dados['sam3'],
-        $date_a,
-        $ip,
-        $dados['forma']
-    ];
-
-    $stmt->bind_param("ssissiiisss", ...$params);
-
-    if($stmt->execute()) {
-        unset($dados);
-    }
-
-    ?>
+?>
