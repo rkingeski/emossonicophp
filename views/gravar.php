@@ -234,7 +234,7 @@ p[type="center"]{
 							<div class="row">
 								<div class="d-flex">
 									<div class="p-2"><b>Controlado</b></div>
-									<div class="ml-auto p-2"><b>Controlando</b></div>
+									<div class="ml-auto p-2"><b>Em Controle</b></div>
 								</div>
 							<div class="mdc-slider mdc-slider--discrete mdc-slider--tick-marks"></div>
 								<input id="slide3" name="sam3" class="form-range" list="tickmarks" type="range" min="-4" max="4"/> 
@@ -245,7 +245,7 @@ p[type="center"]{
 					</div>
 				</div>
 				
-				<div class="container mt-4">
+				<div class="container mt-4 px-2 col-md-8 m-1">
 					Digite os caracteres que você vê na imagem abaixo:
 					<div id="captcha"> 
 					</div>
@@ -254,7 +254,7 @@ p[type="center"]{
 
 
 
-		        <div class="container mt-4">
+		        <div class="container mt-4 px-2 col-md-8 m-1">
 					<button id='btn' class="btn btn-primary" value="Submit" type="submit">Enviar</button>
 				</div>
 
@@ -456,7 +456,7 @@ switch(i3.value){
                     chunck.push(e.data)
                 })
                 mediaRecorder.addEventListener('stop', e=>{
-                    ablob = new Blob(chunck, {type : "audio/mpeg-3"})
+                    ablob = new Blob(chunck, {type : "audio/mpeg-3", numberOfAudioChannels: 1})
                     audio_url = URL.createObjectURL(ablob)
                     audio = new Audio(audio_url)
                     audio.setAttribute("controls",1)
@@ -538,7 +538,7 @@ switch(i3.value){
 	event.preventDefault();
 	debugger
 	if (document.getElementById("cpatchaTextBox").value == code) {
-		alert("Enviado!")
+		alert("Enviado! Aguarde seu áudio ser aprovado para fazer parte do nosso banco. Obrigado! =)")
 		document.location.reload()
 	}else{
 		alert("Invalid Captcha. try Again");

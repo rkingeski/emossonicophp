@@ -1,7 +1,8 @@
 <footer class="container">
     <hr>
-    <p>
-    <span class="d-flex justify-content-end">&#169 UDESC <?= date('Y'); ?></span>
-    </p>
+    <div class="text-end p-3">
+        &#169 UDESC <?= date('Y');?>
+    </div>
 </footer>
 </html>
+

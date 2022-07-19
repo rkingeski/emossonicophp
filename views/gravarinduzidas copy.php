@@ -4,8 +4,8 @@ if(!isset($_SESSION['termo'])) //verifica se termo foi assinado
 	header("Location: ./termoinduzidas.php");
 
 //proteção CSRF
-if (empty($_SESSION['token2']))
-	$_SESSION['token2'] = base64_encode(random_bytes(32));
+if (empty($_SESSION['token']))
+	$_SESSION['token'] = base64_encode(random_bytes(32));
 
 include('../includes/header.php');
 
@@ -468,7 +468,7 @@ p[type="center"]{
 
         
         <form id='form' action="upload2.php" method='post' name='formu' enctype="multipart/form-data" onsubmit="validateCaptcha()">
-			<input type="hidden" name="_token2" value="<?php echo $_SESSION['token2'] ?>"> 
+			<input type="hidden" name="_token" value="<?php echo $_SESSION['token'] ?>"> 
 			<input type="hidden" name="forma" value="induzida"> 
 			
 			<p>Preencha os campos abaixo:</p>
