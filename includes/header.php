@@ -54,18 +54,37 @@
 					  <li class="nav-item">
 						<a class="nav-link active" aria-current="page" href="/">Página Inicial</a>
 					  </li>
-					  <li class="nav-item">
-						<a class="nav-link" href="../views/gravar.php">Gravar</a>
-					  </li>
-					  <li class="nav-item">
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								Gravar
+							</a>
+							<ul class="dropdown-menu bg-dark">
+								<li><a class="dropdown-item text-light" href="../views/gravar.php">Espontâneas</a></li>
+								<li><a class="dropdown-item text-light" href="../views/gravarinduzidas.php">Induzidas</a></li>								
+							</ul>
+        				</li>
+					<li class="nav-item">
 						<a class="nav-link" href="../views/banco.php?page=1">Banco</a>
-					  </li>
-					  <li class="nav-item">
+					</li>
+					<li class="nav-item">
 						<a class="nav-link" href="../views/sobre.php">Sobre</a>
-					  </li>
-					  <li class="nav-item">
+					</li>
+					  	<li class="nav-item">
 						<a class="nav-link" href="../views/contato.php">Contato</a>
-					  </li>
+						</li>
+					</li>
+					<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								Outros
+							</a>
+							<ul class="dropdown-menu bg-dark">
+								<li><a class="dropdown-item text-light" href="../views/emoestudio.php">Versão de Estúdio Emossônico</a></li>
+								<li><a class="dropdown-item text-light" href="../views/resultados.php">Resultados</a></li>
+								<li><a class="dropdown-item text-light" href="../views/recursos.php">Recursos</a></li>
+								<li><a class="dropdown-item text-light" href="https://github.com/rkingeski">Github</a></li>								
+							</ul>
+        				</li>
+					<li class="nav-item">
 				</div>
 		</div>
 			  </nav>

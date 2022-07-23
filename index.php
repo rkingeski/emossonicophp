@@ -30,25 +30,41 @@ include('./includes/header.php');
 		<p>Quando falamos não necessariamente estamos sentindo alguma emoção e mesmo quando sentimos podemos expressar a emoção em diferentes intesidades.</p>
 		<p class="fs-5">Colabore com este projeto, clicando abaixo para escolher como gravará sua voz expressando emoção.</p>
 		<div class="row justify-content-around mt-4">
-			<div class="container-fluid col-md-6 mt-2">
+			<div class="container-fluid col-sm-4 mt-2">
 				<div class="card">
-					<div class="card-header"><h5>Emoções Espontaneas</h5></div>
+					<div class="card-header"><h5>Emoções Espontâneas</h5></div>
 					<div class="card-body">
 						
 						<p class="card-text">Clicando no botão abaixo, onde você pode gravar simulando a emoção que escolher ou você pode gravar num momento em que você está sentindo alguma emoção e queira contribuir para a contrução da nossa base de dados.</p>
-						<a href="views/gravar.php" class="btn btn-primary">Clique Aqui</a>
+						<div class="d-grid gap-2">
+							<a href="views/gravar.php" class="btn btn-primary">Clique Aqui</a>
+						</div>
 					</div>
 				</div>
 			</div>
-			<div class="container-fluid col-md-6 mt-2">
+			<div class="container-fluid col-sm-4 mt-2">
 				<div class="card">
 					<div class="card-header"><h5>Emoções Induzidas</h5></div>
 					<div class="card-body">
 						<p class="card-text">Clicando no botão abaixo, você acessa a página para registrar sua voz após escolher imagens, vídeos ou jogos para induzir emoções.</p>
-						<a href="views/gravarinduzidas.php" class="btn btn-primary">Clique Aqui</a>
+						<div class="d-grid gap-2">
+							<a href="views/gravarinduzidas.php" class="btn btn-primary">Clique Aqui</a>
+						</div>
 					</div>
 				</div>
 			</div>
+			<div class="container-fluid col-sm-4 mt-2">
+				<div class="card">
+					<div class="card-header"><h5>Banco de Gravação de Vozes</h5></div>
+					<div class="card-body">
+							<p class="card-text">Clicando no botão abaixo, você acessa a página para ouvir e avaliar os áudios deste banco.</p>
+							<div class="d-grid gap-2">
+  								<a href="views/banco.php" class="btn btn-primary">Clique Aqui</a>
+							</div>
+					</div>
+				</div>
+			</div>
+			
 		</div>
 
 	</div>
