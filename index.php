@@ -27,7 +27,7 @@ include('./includes/header.php');
 	<div class="container mt-4">
 		<h2>Bem-Vindo!</h2>
 		<p>Este site tem como objetivo coletar e compartilhar a forma como as pessoas falam, ou seja, as emoções que elas transmitem pela voz.</p>
-		<p>Quando falamos não necessariamente estamos sentindo alguma emoção e mesmo quando sentimos podemos expressar a emoção em diferentes intesidades.</p>
+		<p>Quando falamos não necessariamente estamos sentindo alguma emoção e mesmo quando sentimos podemos expressar a emoção em diferentes intensidades.</p>
 		<p class="fs-5">Colabore com este projeto, clicando abaixo para escolher como gravará sua voz expressando emoção.</p>
 		<div class="row justify-content-around mt-4">
 			<div class="container-fluid col-sm-4 mt-2">
@@ -35,7 +35,7 @@ include('./includes/header.php');
 					<div class="card-header"><h5>Emoções Espontâneas</h5></div>
 					<div class="card-body">
 						
-						<p class="card-text">Clicando no botão abaixo, onde você pode gravar simulando a emoção que escolher ou você pode gravar num momento em que você está sentindo alguma emoção e queira contribuir para a contrução da nossa base de dados.</p>
+						<p class="card-text">Clicando no botão abaixo, onde você pode gravar simulando a emoção que escolher ou você pode gravar num momento em que você está sentindo alguma emoção e queira contribuir para a construção da nossa base de dados.</p>
 						<div class="d-grid gap-2">
 							<a href="views/gravar.php" class="btn btn-primary">Clique Aqui</a>
 						</div>

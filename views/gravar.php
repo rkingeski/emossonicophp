@@ -99,6 +99,7 @@ p[type="center"]{
 				
 			</div>
 
+			<ul id="playlist"></ul>
 			<div id='audiofiles' class="container mt-2 px-2 col-md-8 m-2 mb-2"></div>
 			
 
@@ -308,6 +309,7 @@ include('../includes/footer.php');
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
+<script src='https://unpkg.com/mic-recorder-to-mp3'></script>
 
 <script>
 
@@ -426,59 +428,57 @@ switch(i3.value){
 }, false);
 
 
+const button = document.querySelector('button');
+    const recorder = new MicRecorder({
+      bitRate: 128
+    });
 
-
-    var audio_url
-	$('#recButton').addClass("notRec");
 
     recButton.onclick = () =>{
-		
-	
-	if($('#recButton').hasClass('notRec')){
+		$("#recButton").attr("disabled", true);
+      recorder.start().then(() => {
+		if($('#recButton').hasClass('notRec')){
 		$('#recButton').removeClass("notRec");
 		$('#recButton').addClass("Rec");
-	}
-	else{
+		}
+		else{
 		$('#recButton').removeClass("Rec");
 		$('#recButton').addClass("notRec");
-	}
-		
-		
-		//$("#recButton").attr("disabled", true);
+		}
 		$("#parar").attr("disabled", false);
-            navigator.mediaDevices.getUserMedia({audio:true})  
-            .then(stream =>{
-                mediaRecorder = new MediaRecorder(stream)
-                mediaRecorder.start()
-                chunck = []
-
-                mediaRecorder.addEventListener('dataavailable', e =>{
-                    chunck.push(e.data)
-                })
-                mediaRecorder.addEventListener('stop', e=>{
-                    ablob = new Blob(chunck, {type : "audio/mpeg-3", numberOfAudioChannels: 1})
-                    audio_url = URL.createObjectURL(ablob)
-                    audio = new Audio(audio_url)
-                    audio.setAttribute("controls",1)
-                    audiofiles.appendChild(audio)
-                    
-                    
-                    
-                })
-            })
-			
-        }
-
+      }).catch((e) => {
+        console.error(e);
+      });
+    }
 
     parar.onclick = () =>{
+		
+      recorder.stop().getMp3().then(([buffer, blob]) => {
+        console.log(buffer, blob);
+
+        const file = new File(buffer, 'music.mp3', {
+          type: blob.type,
+          lastModified: Date.now()
+        });
+		ablob = new Blob(buffer, { type: 'audio/mp3; codecs=opus', audioBitsPerSecond: 128000, audioBitrateMode: "constant" })
+
+		console.log(file)
+        //const li = document.createElement('li');
+        const player = new Audio(URL.createObjectURL(file));
+        player.controls = true;
+        //li.appendChild(player);
+        //document.querySelector('#playlist').appendChild(li);
+		audiofiles.appendChild(player)
+		$("#recButton").attr("disabled", true);
 		$('#recButton').removeClass("Rec");
 		$('#recButton').addClass("notRec");
-		$("#recButton").attr("disabled", true);
-        mediaRecorder.stop()
-		
-        //console.log(this.audio_url)
-
+		$("#parar").attr("disabled", true);
+      }).catch((e) => {
+        console.error(e);
+      });
     }
+
+
 
 
 	excluir.onclick = () =>{
@@ -493,12 +493,13 @@ switch(i3.value){
 		form = e.target
         var data2 = new FormData(form);
         var request = new XMLHttpRequest();
-        data2.append('audio_data',this.ablob);
+		//let audiofile = document.getElementById("audiofiles").files[0];
+        data2.append('audio_data', this.ablob);
         request.open('POST','upload.php', true);
 		if(this.ablob==undefined){
 			alert("Áudio Vazio")
 		}else{
-		if(this.ablob.size>=20000000){
+		if(this.ablob>=20000000){
 			alert("Áudio Muito Grande! Favor regravar com tempo menor. O ideal é que não ultrapasse de três minutos, você pode enviar quantos você desejar. ")
 		} else {
 		//alert("Enviado")

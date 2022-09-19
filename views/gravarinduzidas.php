@@ -101,7 +101,7 @@ p[type="center"]{
 
         <p>Ao gravar, você está concordando com os <a href="termo">Termos</a>.</p>
 
-		<p class="text">Abaixo você pode escolher dois tipos de atividades, assistir vídeos ou jogar. Selecione o que preferir em seguida selecione a emoção, clique nas setas para passar os videos. Caso queira gravar enquanto assiste aos vídeos recomenda-se que utilize fones de ouvido, lembre-se cada áudio deve conter apenas uma emoção e não deve ultrapassar 15 minutos.</p>
+		<p class="text">Abaixo você pode escolher dois tipos de atividades, assistir vídeos ou jogar. Selecione o que preferir em seguida selecione a emoção, clique nas setas para passar os vídeos. Caso queira gravar enquanto assiste aos vídeos recomenda-se que utilize fones de ouvido, lembre-se cada áudio deve conter apenas uma emoção e não deve ultrapassar 15 minutos.</p>
 
 
 		<div class="gravador">
@@ -651,6 +651,7 @@ include('../includes/footer.php');
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
+<script src='https://unpkg.com/mic-recorder-to-mp3'></script>
 
 <script>
 
@@ -774,58 +775,55 @@ switch(i3.value){
 
 
 
-    var audio_url
-	$('#recButton').addClass("notRec");
+const button = document.querySelector('button');
+    const recorder = new MicRecorder({
+      bitRate: 128
+    });
+
 
     recButton.onclick = () =>{
-		
-	
-	if($('#recButton').hasClass('notRec')){
+
+      recorder.start().then(() => {
+		if($('#recButton').hasClass('notRec')){
 		$('#recButton').removeClass("notRec");
 		$('#recButton').addClass("Rec");
-	}
-	else{
+		}
+		else{
 		$('#recButton').removeClass("Rec");
 		$('#recButton').addClass("notRec");
-	}
-		
-		
-		//$("#recButton").attr("disabled", true);
+		}
 		$("#parar").attr("disabled", false);
-            navigator.mediaDevices.getUserMedia({audio:true})  
-            .then(stream =>{
-                mediaRecorder = new MediaRecorder(stream)
-                mediaRecorder.start()
-                chunck = []
-
-                mediaRecorder.addEventListener('dataavailable', e =>{
-                    chunck.push(e.data)
-                })
-                mediaRecorder.addEventListener('stop', e=>{
-                    ablob = new Blob(chunck, {type : "audio/mpeg-3"})
-                    audio_url = URL.createObjectURL(ablob)
-                    audio = new Audio(audio_url)
-                    audio.setAttribute("controls",1)
-                    audiofiles.appendChild(audio)
-                    
-                    
-                    
-                })
-            })
-			
-        }
-
-
-    parar.onclick = () =>{
-		$('#recButton').removeClass("Rec");
-		$('#recButton').addClass("notRec");
-		$("#recButton").attr("disabled", true);
-        mediaRecorder.stop()
-		
-        //console.log(this.audio_url)
-
+      }).catch((e) => {
+        console.error(e);
+      });
     }
 
+    parar.onclick = () =>{
+		$("#recButton").attr("disabled", true);
+      recorder.stop().getMp3().then(([buffer, blob]) => {
+        console.log(buffer, blob);
+
+        const file = new File(buffer, 'music.mp3', {
+          type: blob.type,
+          lastModified: Date.now()
+        });
+		ablob = new Blob(buffer, { type: 'audio/mp3; codecs=opus', audioBitsPerSecond: 128000, audioBitrateMode: "constant" })
+
+		console.log(file)
+        //const li = document.createElement('li');
+        const player = new Audio(URL.createObjectURL(file));
+        player.controls = true;
+        //li.appendChild(player);
+        //document.querySelector('#playlist').appendChild(li);
+		audiofiles.appendChild(player)
+		$("#recButton").attr("disabled", true);
+		$('#recButton').removeClass("Rec");
+		$('#recButton').addClass("notRec");
+		$("#parar").attr("disabled", true);
+      }).catch((e) => {
+        console.error(e);
+      });
+    }
 
 	excluir.onclick = () =>{
 		$("#recButton").attr("disabled", false);
